@@ -1,6 +1,8 @@
 # C++_Primer_Plus
 file(GLOB SRCS PRIVATE
         *.cpp
+        Chapter1/*.cpp
+        Chapter2/*.cpp
 )
 
 foreach (source ${SRCS})
