@@ -2,18 +2,18 @@
 #include <functional>
 #include <string>
 
-auto println(std::string_view str) -> void {
-    std::cout << str << std::endl;
+auto print_v1 () {
+    std::cout << "Three blind mice\n";
 }
 
-auto repeat_println(std::string_view str, std::size_t times) -> void {
-    for (std::size_t i = 0; i < times; i++) {
-        println(str);
-    }
+auto print_v2 () {
+    std::cout << "See how they run\n";
 }
 
 auto main() -> int {
-    repeat_println("Three blind mice", 2);
-    repeat_println("See how they run", 2);
+    print_v1();
+    print_v1();
+    print_v2();
+    print_v2();
     return 0;
 }
