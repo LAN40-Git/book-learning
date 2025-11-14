@@ -101,3 +101,37 @@ C++可以使用大量的C库函数。要使用库函数，应当包含提供该�
 
 **整型**
 
+整数就是没有小鼠部分的数字，如2、98、-5286和0。C++的基本整型有char、short、int、long和C++11新增的long long，其中每种类型都有符号版本和无符号版本，因此总共有10中类型可供选择。
+
+计算机内存由一些叫做位（bit）的单元组成。C++的short、int、long和long long类型通过使用不同数目的位来存储值，最多能够表示4种不同的整数宽度。如果在所有的系统中，每种类型的宽度都相同，则使用起来将非常方便。例如，如果short总是16位，int总是32位，等等。不过生活并非那么简单，没有一种选择能够满足所有的计算机设计要求。C++提供了一种灵活的标准，它确保了最小长度（从C语言借鉴而来），如下所示：
+
+- short至少16位
+- int至少与short一样长
+- long至少32位，且至少与int一样长
+- long long至少64位，且至少与long一样长
+
+可以使用`sizeof`方法或者`climits`头文件中的符号常量来获取系统各种类型的大小。
+
+`climits`中的符号常量
+
+| 符号常量   | 表示                       |
+| ---------- | -------------------------- |
+| CHAR_BIT   | char的位数                 |
+| CHAR_MAX   | char的最大值               |
+| CHAR_MIN   | char的最小值               |
+| SCHAR_MAX  | signed char的最大值        |
+| SCHAR_MIN  | signed char的最小值        |
+| UCHAR_MAX  | unsigned char的最大值      |
+| SHRT_MAX   | short的最大值              |
+| SHRT_MIN   | short的最小值              |
+| USHRT_MAX  | unsigned short的最大值     |
+| INT_MAX    | int的最大值                |
+| INT_MIN    | int的最小值                |
+| UNIT_MAX   | unsigned int的最大值       |
+| LONG_MAX   | long的最大值               |
+| LONG_MIN   | long的最小值               |
+| ULONG_MAX  | unsigned long的最大值      |
+| LLONG_MAX  | long long的最大值          |
+| LLONG_MIN  | long long的最小值          |
+| ULLONG_MAX | unsigned long long的最大值 |
+
