@@ -1,0 +1,16 @@
+# HyperText_Transfer_Protocol
+file(GLOB SRCS PRIVATE
+        *.cpp
+        Chapter1/*.cpp
+)
+
+set(DEPEND_LIBS
+
+)
+
+foreach (source ${SRCS})
+    get_filename_component(basename ${source} NAME_WE)
+    add_executable(${basename} ${source})
+    target_link_libraries(${basename} ${DEPEND_LIBS})
+    add_test(NAME ${basename} COMMAND ${basename})
+endforeach ()

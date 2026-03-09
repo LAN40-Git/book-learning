@@ -6,6 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ====== C++ ======
 
+# C++_Primer
+add_subdirectory(src/C++/C++_Primer)
+
 # C++_Primer_Plus
 add_subdirectory(src/C++/C++_Primer_Plus)
 
