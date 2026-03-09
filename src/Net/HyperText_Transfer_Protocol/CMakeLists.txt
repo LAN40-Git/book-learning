@@ -3,6 +3,10 @@ file(GLOB SRCS PRIVATE
         *.cpp
 )
 
+set(DEPEND_LIBS
+
+)
+
 foreach (source ${SRCS})
     get_filename_component(basename ${source} NAME_WE)
     add_executable(${basename} ${source})
