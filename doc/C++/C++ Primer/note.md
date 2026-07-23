@@ -267,33 +267,12 @@ std::cout << "The sum of " << v1 << " and " << v2
 
 #### 1.4.1 while 语句
 
-  while语句反复执行一段代码，直至给定条件为假位置。我们可以用while语句编写一个程序，求1到10这10个数之和：
-
-```c++
-#include <iostream>
-
-int main()
-{
-    int sum = 0, val = 1;
-    // 只要val的值小于等于10，while循环就会持续执行
-    while (val <= 10) {
-        sum += val; // 将sum + val赋予sum
-        ++val;      // 将val加1
-    }
-    std::cout << "Sum of 1 to 10 inclusive is "
-        	  << sum << std::endl;
-    return 0;
-}
-```
-
-  这个程序的新内容是while语句。while语句的形式为
+**while语句形式**
 
 ```c++
 while(condition)
 	statement
 ```
-
-while语句的执行过程是交替地检测condition条件和执行关联的语句statement，直至condition为假时停止。
 
 
 
@@ -305,23 +284,28 @@ while语句的执行过程是交替地检测condition条件和执行关联的语
 
 #### 1.4.2 for语句
 
-  在我们的while循环例子中，使用了变量val来控制循环执行次数。我们在循环条件中检测val的值，在while循环体中将val递增。
-
-  这种在循环条件中检测变量、在循环体中递增变量的模式使用非常频繁，以至于C++语言专门定义了第二种循环语句（for语句），来简化符合这种模式的语句。可以用for语句来重写1加到10的程序：
+**for语句形式**
 
 ```c++
-#include <iostream>
-
-int main()
-{
-	int sum = 0;
-    // 从1加到10
-    for (int val = 1; val <= 10; ++val)
-    {
-        sum += val; // 等价于sum = sum + val
-    }
-    std::cout << "Sum of 1 to 10 inclusive is " << sum << std::endl;
-    return 0;
-}
+for (init-statement; condition; expression)
+	statement
 ```
+
+
+
+#### 1.4.3 读取数量不定的输入数据
+
+
+
+### 1.5 类简介
+
+
+
+### 1.6 书店程序
+
+
+
+## 第Ⅰ部分 C++基础
+
+### 第2章 变量和基本类型
 
