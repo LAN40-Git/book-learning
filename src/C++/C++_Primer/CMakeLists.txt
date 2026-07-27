@@ -2,6 +2,7 @@
 file(GLOB SRCS PRIVATE
         *.cpp
         Chapter1/*.cpp
+        Chapter2/*.cpp
 )
 
 set(DEPEND_LIBS
