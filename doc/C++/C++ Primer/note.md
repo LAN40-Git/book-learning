@@ -2022,4 +2022,78 @@ Your hex number is: C05F8F
 
 #### 3.3 标准库类型vector
 
-  标准库类型vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。因额外ivector“容纳这”
+  标准库类型vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。因额外ivector“容纳着”其他对象，所以它也常被称作**容器**（container）。
+
+> [!NOTE]
+>
+> vector是模板而非类型，由vector生成的类型必须包含vector中元素的类型，例如vector<int>
+
+  在早期版本的C++标准中如果vector的元素还是vector（或者其他模板类型），则其定义的形式于现在的C++11新标准略由不同。过去，必须在外层vector对象的右尖括号和其元素类型之间添加一个空格，如应该协程`vector<vector<int> >`而非`vector<vector<int>>`。
+
+> [!WARNING]
+>
+> 某些编译器可能仍需以老式的声明语句来处理元素为vector的vector对象，如`vector<vector<int> >`
+
+##### 3.3.1 定义和初始化vector对象
+
+  和任意一种类型一样，vector模板控制着定义和初始化向量的方法。表3.4列出了定义vector对象的常用方法。
+
+<center>表3.4 初始化vector对象的方法</center>
+
+| 方法                      | 含义                                                    |
+| ------------------------- | ------------------------------------------------------- |
+| `vector<T> v1`            | v1是一个空vector，它潜在的元素是T类型的，执行默认初始化 |
+| `vector<T> v2(v1)`        | v2中包含右v1所有元素的副本                              |
+| `vector<T> v2 = v1`       | 等价于v2(v1)，v2中包含右v1所有元素的副本                |
+| `vector<T> v3(n, val)`    | v3包含了n个重复的元素，每个元素的值都是val              |
+| `vector<T> v4(n)`         | v4包含了n个重复执行了值初始化的对象                     |
+| `vector<T> v5{a,b,c...}`  | v5包含了初始值个数的元素，每个元素被赋予相应的初始值    |
+| `vector<T> v5={a,b,c...}` | 等价于v5{a,b,c...}                                      |
+
+  可以默认初始化vector对象，从而创建一个指定类型的空vector：
+
+```c++
+vector<string> svec; // 默认初始化，svec不含任何元素
+```
+
+看起来空vector好像没什么用，但是很快我们就会知道程序在运行时可以很搞笑地往vector对象中添加元素。事实上，最常见的方式就是先定义一个空vector，然后当运行时获取到元素的值后再逐一添加。
+
+  当然也可以在定义vector对象时指定元素的初始值。例如，允许把一个vector对象的元素拷贝给另外一个vector对象。此时，新vector对象的元素就是原vector对象对应元素的副本。注意两个vector对象的类型必须相同：
+
+```c++
+vector<int> ivec; // 初始状态为空
+// 在此处给ivec添加一些之
+vector<int> ivec2(ivec); // 把ivec的元素拷贝给ivec2
+vector<int> ivec3 = ivec; // 把ivec的元素拷贝给ivec3
+vector<string> svec(ivec2); // 错误：svec的元素是string对象，不是int
+```
+
+
+
+**列表初始化vector对象**
+
+  C++11新标准还提供了另外一种为vector对象的元素赋初值的方法，即列表初始化。此时，用花括号括起来的0个或多个初始元素值被赋给vector对象：
+
+```c++
+vector<string> articles = {"a", "an", "the"};
+```
+
+上述vector对象包含三个元素：第一个是字符串"a"，第二个是字符串"an"，最后一个是字符串"the"。
+
+
+
+**创建指定数量的元素**
+
+  还可以用vector对象容纳的元素数量和所有元素的统一初始化来初始化vector对象：
+
+```c++
+vector<int> ivec(10, -1); // 10个int类型的元素，每个都被初始化为-1
+vector<string> svec(10, "hi!"); // 10个string类型的元素，
+								// 每个都被初始化为"hi!"
+```
+
+
+
+**值初始化**
+
+  通常情况下，
