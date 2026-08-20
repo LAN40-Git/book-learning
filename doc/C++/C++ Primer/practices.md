@@ -1,4 +1,4 @@
-# Practices Of Chapter1
+# Practices Of Ch
 
 ## [Chapter1](../../../src/C++/C++_Primer/Chapter1/practices.md)
 
